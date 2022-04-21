@@ -20,7 +20,7 @@ const App = () => {
     <Container maxWidth="lg">
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h2" align="center">
-          Memories
+          Journalie
         </Typography>
         <img
           className={classes.image}
