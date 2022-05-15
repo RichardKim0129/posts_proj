@@ -1,3 +1,5 @@
+// Since this is routes of posts, all routes here  being with "/posts" then "/(whatever you want)"
+
 import express from "express";
 
 import {
@@ -6,10 +8,13 @@ import {
   updatePost,
   deletePost,
   likePost,
+  getPostsBySearch,
 } from "../controllers/posts.js";
 import auth from "../middleware/auth.js";
 
 const router = express.Router();
+
+router.get("/search", getPostsBySearch);
 
 router.get("/", getPosts);
 router.post("/", auth, createPost);
