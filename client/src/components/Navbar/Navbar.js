@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { AppBar, Avatar, Button, Toolbar, Typography } from "@material-ui/core";
-import memories from "../../images/memories.png";
+import journalieLogo from "../../images/journalieLogo.png";
+import journalieText from "../../images/journalieText.png";
 import { Link, useHistory, useLocation } from "react-router-dom";
+
+import { LOGOUT } from "../../constants/actionTypes";
 
 import { useDispatch } from "react-redux";
 import useStyles from "./styles";
@@ -18,7 +21,7 @@ const Navbar = () => {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   const logout = () => {
-    dispatch({ type: "LOGOUT" });
+    dispatch({ type: LOGOUT });
 
     history.push("/");
 
@@ -39,23 +42,20 @@ const Navbar = () => {
 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
-      <div className={classes.brand}>
-        <Typography
-          component={Link}
-          to="/"
-          className={classes.heading}
-          variant="h2"
-          align="center"
-        >
-          Journalie
-        </Typography>
+      <Link to="/" className={classes.brandContainer}>
         <img
           className={classes.image}
-          src={memories}
-          alt="memories"
-          height="60"
+          src={journalieText}
+          alt="journalie-text"
+          height="40"
         />
-      </div>
+        <img
+          className={classes.image}
+          src={journalieLogo}
+          alt="journalies"
+          height="40"
+        />
+      </Link>
       <Toolbar className={classes.toolbar}>
         {user ? (
           <div className={classes.profile}>
