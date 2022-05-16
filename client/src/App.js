@@ -23,11 +23,7 @@ const App = () => {
           {/* Dynamic */}
           <Route path="/posts/:id" component={PostDetails} />
           {/* Redirect to home when already logged in */}
-          <Route
-            path="/auth"
-            exact
-            component={() => (!user ? <Auth /> : <Redirect to="/posts" />)}
-          />
+          <Route path="/auth" exact component={() => (!user ? <Auth /> : <Redirect to="/posts" />)} />
         </Switch>
       </Container>
     </BrowserRouter>
