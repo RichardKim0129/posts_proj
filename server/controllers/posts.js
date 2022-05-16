@@ -123,7 +123,7 @@ export const likePost = async (req, res) => {
     // Like the post
     post.likes.push(req.userId);
   } else {
-    // Delete/dislike a post
+    // Change mind about liking post
     post.likes = post.likes.filter((id) => id !== String(req.userId));
   }
 

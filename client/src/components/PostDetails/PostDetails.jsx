@@ -60,10 +60,8 @@ const PostDetails = () => {
           <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
           <Divider style={{ margin: "20px 0" }} />
           <Typography variant="body1">
-            <strong>Some Function If Needed</strong>
+            <strong>Comment Function Coming Soon</strong>
           </Typography>
-          <Divider style={{ margin: "20px 0" }} />
-          <Typography variant="body1">Some Function Coming Soon</Typography>
           <Divider style={{ margin: "20px 0" }} />
         </div>
         <div className={classes.imageSection}>

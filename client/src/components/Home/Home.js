@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
-import {
-  Grow,
-  Container,
-  Grid,
-  Paper,
-  AppBar,
-  TextField,
-  Button,
-} from "@material-ui/core";
+import { Grow, Container, Grid, Paper, AppBar, TextField, Button } from "@material-ui/core";
 import { useDispatch } from "react-redux";
-import { getPosts, getPostsBySearch } from "../../actions/posts";
+import { getPostsBySearch } from "../../actions/posts";
 
 // useLocation() is to know where the user is currently
 // useHistory() renavigate to certain pages and search terms
@@ -47,9 +39,7 @@ const Home = () => {
     if (search.trim() || tags) {
       // dispatch to fetch search post
       dispatch(getPostsBySearch({ search, tags: tags.join(",") }));
-      history.push(
-        `/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`
-      );
+      history.push(`/posts/search?searchQuery=${search || "none"}&tags=${tags.join(",")}`);
     } else {
       history.push("/");
     }
@@ -65,8 +55,7 @@ const Home = () => {
 
   const handleAdd = (tag) => setTags([...tags, tag]);
 
-  const handleDelete = (tagToDelete) =>
-    setTags(tags.filter((tag) => tag !== tagToDelete));
+  const handleDelete = (tagToDelete) => setTags(tags.filter((tag) => tag !== tagToDelete));
 
   return (
     <div>
@@ -83,11 +72,7 @@ const Home = () => {
               <Posts setCurrentId={setCurrentId} />
             </Grid>
             <Grid item xs={12} sm={6} md={3}>
-              <AppBar
-                className={classes.appBarSearch}
-                position="static"
-                color="inherit"
-              >
+              <AppBar className={classes.appBarSearch} position="static" color="inherit">
                 <TextField
                   name="search"
                   variant="outlined"
@@ -105,12 +90,7 @@ const Home = () => {
                   label="Search Tags"
                   variant="outlined"
                 />
-                <Button
-                  onClick={searchPost}
-                  className={classes.searchButton}
-                  color="primary"
-                  variant="contained"
-                >
+                <Button onClick={searchPost} className={classes.searchButton} color="primary" variant="contained">
                   Search
                 </Button>
               </AppBar>
